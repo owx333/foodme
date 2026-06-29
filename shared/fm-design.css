@@ -1,0 +1,184 @@
+/**
+ * FoodMe Design System — shared across user / panel / team
+ * user.foodme.my · panel.foodme.my · team.foodme.my
+ */
+:root {
+  /* ── Core tokens (single source of truth) ── */
+  --fm-ink: #16242E;
+  --fm-ink-d: #213642;
+  --fm-paper: #F4F8FB;
+  --fm-paper-alt: #EEF3F7;
+  --fm-card: #FFFFFF;
+  --fm-soft: #E8F2F9;
+  --fm-line: #E2EBF1;
+  --fm-muted: #788893;
+  --fm-primary: #0165E5;
+  --fm-primary-d: #1382BE;
+  --fm-success: #1FA37C;
+  --fm-success-d: #157A5B;
+  --fm-warning: #F2A900;
+  --fm-danger: #E0594A;
+  --fm-shadow: 0 8px 26px -14px rgba(22, 46, 66, 0.30);
+  --fm-shadow-card: 0 4px 20px -4px rgba(22, 46, 66, 0.12), 0 2px 8px -2px rgba(22, 46, 66, 0.06);
+  --fm-shadow-footer: 0 8px 32px -8px rgba(22, 46, 66, 0.45);
+  --fm-radius-sm: 11px;
+  --fm-radius-md: 16px;
+  --fm-radius-lg: 20px;
+  --fm-radius-xl: 24px;
+  --fm-touch: 48px;
+  --fm-font-display: 'Bricolage Grotesque', 'Noto Sans SC', sans-serif;
+  --fm-font-body: 'Plus Jakarta Sans', 'Noto Sans SC', sans-serif;
+  --fm-font-mono: 'Space Mono', monospace;
+
+  /* ── Legacy aliases (user app) ── */
+  --ink: var(--fm-ink);
+  --paper: var(--fm-paper);
+  --card: var(--fm-card);
+  --soft: var(--fm-soft);
+  --line: var(--fm-line);
+  --muted: var(--fm-muted);
+  --chilli: var(--fm-primary);
+  --chilli-d: var(--fm-primary-d);
+  --pandan: var(--fm-success);
+  --pandan-d: var(--fm-success-d);
+  --turmeric: var(--fm-warning);
+  --spend: var(--fm-danger);
+  --brand: var(--fm-ink);
+  --brand-d: var(--fm-ink-d);
+  --sh: var(--fm-shadow);
+
+  /* ── Legacy aliases (panel / team) ── */
+  --blue: var(--fm-primary);
+  --blue-d: var(--fm-primary-d);
+  --green: var(--fm-success);
+  --green-d: var(--fm-success-d);
+  --gold: var(--fm-warning);
+  --red: var(--fm-danger);
+}
+
+/* ── Motion ── */
+@keyframes fmViewIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fmViewOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-8px); }
+}
+@keyframes fmFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fmSlideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+@keyframes fmspin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Page / view transitions ── */
+.fm-view-enter { animation: fmViewIn 0.35s ease-out forwards; }
+.fm-view-leave { animation: fmViewOut 0.22s ease-in forwards; pointer-events: none; }
+
+/* ── Card primitive ── */
+.fm-card {
+  background: var(--fm-card);
+  border: 1px solid var(--fm-line);
+  border-radius: var(--fm-radius-md);
+  padding: 1rem;
+  box-shadow: var(--fm-shadow-card);
+}
+.fm-card-lg {
+  border-radius: var(--fm-radius-lg);
+  padding: 1.125rem 1rem;
+}
+
+/* ── Touch-friendly controls ── */
+.fm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--fm-touch);
+  padding: 0 1.25rem;
+  border-radius: var(--fm-radius-sm);
+  font-weight: 700;
+  font-size: 15px;
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+.fm-btn:active { transform: scale(0.97); }
+.fm-btn-primary { background: var(--fm-primary); color: #fff; }
+.fm-btn-ink { background: var(--fm-ink); color: #fff; }
+.fm-btn-success { background: var(--fm-success); color: #fff; }
+
+/* ── Login shell (panel + team + user) ── */
+.fm-login-shell {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  animation: fmFadeIn 0.4s ease-out;
+}
+.fm-login-card {
+  width: 100%;
+  max-width: 340px;
+  background: var(--fm-card);
+  border: 1px solid var(--fm-line);
+  border-radius: var(--fm-radius-xl);
+  padding: 2rem 1.5rem;
+  box-shadow: var(--fm-shadow-card);
+}
+.fm-login-card h1 {
+  font-family: var(--fm-font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin-bottom: 0.35rem;
+}
+.fm-login-card p,
+.fm-login-card small {
+  color: var(--fm-muted);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+.fm-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border-radius: var(--fm-radius-sm);
+  border: 1px solid var(--fm-line);
+  background: var(--fm-soft);
+  color: var(--fm-ink);
+  font-size: 15px;
+  margin-bottom: 0.625rem;
+}
+.fm-input:focus {
+  outline: 2px solid var(--fm-primary);
+  outline-offset: 1px;
+}
+
+/* ── Loading spinner ── */
+.fm-spinner {
+  width: 42px;
+  height: 42px;
+  border: 3px solid var(--fm-line);
+  border-top-color: var(--fm-primary);
+  border-radius: 50%;
+  animation: fmspin 0.7s linear infinite;
+}
+
+/* ── App identity badges ── */
+.fm-app-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 99px;
+  letter-spacing: 0.04em;
+}
+.fm-app-badge-user { background: rgba(1, 101, 229, 0.12); color: var(--fm-primary-d); }
+.fm-app-badge-panel { background: rgba(22, 36, 46, 0.1); color: var(--fm-ink); }
+.fm-app-badge-team { background: rgba(31, 163, 124, 0.14); color: var(--fm-success-d); }

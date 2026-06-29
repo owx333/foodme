@@ -1,0 +1,50 @@
+{
+  "hosting": [
+    {
+      "target": "user",
+      "public": ".",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**",
+        "panelindex.html",
+        "foodme_full_premium_ui_prototype.html"
+      ],
+      "rewrites": [
+        { "source": "**", "destination": "/index.html" }
+      ],
+      "headers": [
+        {
+          "source": "/shared/**",
+          "headers": [{ "key": "Cache-Control", "value": "public,max-age=604800" }]
+        }
+      ]
+    },
+    {
+      "target": "panel",
+      "public": ".",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**",
+        "index.html",
+        "404.html",
+        "foodme_full_premium_ui_prototype.html"
+      ],
+      "rewrites": [{ "source": "**", "destination": "/panelindex.html" }]
+    },
+    {
+      "target": "team",
+      "public": ".",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**",
+        "index.html",
+        "404.html",
+        "foodme_full_premium_ui_prototype.html"
+      ],
+      "rewrites": [{ "source": "**", "destination": "/panelindex.html" }]
+    }
+  ]
+}

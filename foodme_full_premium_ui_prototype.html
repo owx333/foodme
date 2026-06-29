@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,viewport-fit=cover">
+<title>FOODME Premium Full UI Prototype</title>
+<style>
+:root{
+  --brand:#0B1D4D;--brand2:#0165E5;--paper:#F4F8FF;--ink:#07182F;--muted:#6B7890;
+  --green:#16B88A;--red:#EF5350;--amber:#F6B73C;--line:rgba(255,255,255,.55);
+  --glass:rgba(255,255,255,.62);--shadow:0 24px 80px rgba(11,29,77,.18);
+  --radius:28px;--fast:.22s cubic-bezier(.2,.8,.2,1);--smooth:.55s cubic-bezier(.18,.9,.2,1);
+}
+*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC",Inter,sans-serif;color:var(--ink);background:radial-gradient(circle at 10% 8%,#CFE8FF 0,transparent 25%),radial-gradient(circle at 90% 12%,#E0D2FF 0,transparent 22%),linear-gradient(145deg,#FAFCFF,#EAF2FF);overflow:hidden}
+button,input,select{font:inherit}button{border:0;cursor:pointer;color:inherit}.orb{position:fixed;border-radius:50%;filter:blur(7px);opacity:.55;animation:float 8s ease-in-out infinite;pointer-events:none}.o1{width:180px;height:180px;background:#74C6FF;left:-60px;top:80px}.o2{width:230px;height:230px;background:#FFD58A;right:-80px;top:210px;animation-delay:-2s}.o3{width:160px;height:160px;background:#9AF0D3;left:35%;bottom:-70px;animation-delay:-4s}@keyframes float{50%{transform:translateY(-24px) translateX(16px) scale(1.04)}}
+.app{height:100dvh;display:grid;grid-template-columns:260px 1fr;gap:22px;padding:24px}.glass{background:var(--glass);backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px);border:1px solid var(--line);box-shadow:var(--shadow)}.side{border-radius:32px;padding:20px;display:flex;flex-direction:column;min-height:0}.brand{display:flex;gap:12px;align-items:center;margin-bottom:20px}.logo{width:48px;height:48px;border-radius:17px;background:linear-gradient(145deg,var(--brand),var(--brand2));display:grid;place-items:center;color:#fff;font-weight:950;box-shadow:0 12px 30px rgba(1,101,229,.35)}.brand b{font-size:22px;letter-spacing:-.03em}.brand span{display:block;color:var(--muted);font-size:12px;font-weight:700}.nav{display:grid;gap:8px}.nav button{height:50px;border-radius:18px;background:transparent;color:var(--muted);font-weight:850;text-align:left;padding:0 16px;transition:var(--fast)}.nav button:hover{transform:translateX(5px);background:rgba(255,255,255,.65);color:var(--brand)}.nav button.on{background:#fff;color:var(--brand);box-shadow:0 12px 28px rgba(11,29,77,.10)}.mini{margin-top:auto;border-radius:24px;padding:16px;background:rgba(255,255,255,.55)}.skeleton{height:14px;border-radius:999px;background:linear-gradient(90deg,#E6EEF8,#FFF,#E6EEF8);background-size:220% 100%;animation:shimmer 1.3s infinite}.s2{width:55%;margin-top:10px}.s3{width:86%;margin-top:10px}@keyframes shimmer{to{background-position:-220% 0}}
+.main{min-width:0;overflow:auto;padding-right:4px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.top h1{font-size:34px;margin:0;letter-spacing:-.045em}.top p{margin:5px 0 0;color:var(--muted);font-weight:650}.pill{background:#fff;border-radius:999px;padding:10px 15px;font-weight:900;color:var(--brand);box-shadow:0 8px 24px rgba(11,29,77,.08)}
+.view{display:none;animation:viewIn var(--smooth) both}.view.on{display:block}@keyframes viewIn{from{opacity:0;transform:translateY(18px) scale(.985);filter:blur(4px)}to{opacity:1;transform:none;filter:blur(0)}}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{border-radius:var(--radius);padding:20px;position:relative;overflow:hidden;transition:var(--fast);animation:stagger .65s both}.card:nth-child(2){animation-delay:.07s}.card:nth-child(3){animation-delay:.14s}.card:nth-child(4){animation-delay:.21s}@keyframes stagger{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:none}}.card:hover{transform:translateY(-5px);box-shadow:0 30px 80px rgba(11,29,77,.24)}.label{font-size:13px;color:var(--muted);font-weight:850}.num{font-size:31px;font-weight:950;margin-top:9px;letter-spacing:-.05em}.trend{font-size:12px;font-weight:900;margin-top:8px;color:var(--green)}.wide{display:grid;grid-template-columns:1.45fr .9fr;gap:18px;margin-top:18px}.panel{border-radius:32px;padding:22px;min-height:310px}.panel h2{margin:0 0 16px;font-size:20px;letter-spacing:-.03em}.chart{height:195px;display:flex;align-items:end;gap:12px}.bar{flex:1;border-radius:14px 14px 6px 6px;background:linear-gradient(180deg,var(--brand2),var(--brand));height:20%;animation:grow 1s both;transform-origin:bottom}.bar:nth-child(2){height:38%;animation-delay:.06s}.bar:nth-child(3){height:70%;animation-delay:.12s}.bar:nth-child(4){height:86%;animation-delay:.18s}.bar:nth-child(5){height:64%;animation-delay:.24s}.bar:nth-child(6){height:52%;animation-delay:.30s}.bar:nth-child(7){height:34%;animation-delay:.36s}@keyframes grow{from{transform:scaleY(.05);opacity:.2}to{transform:scaleY(1);opacity:1}}.row{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.66);border-radius:20px;padding:13px;margin-bottom:10px;transition:var(--fast)}.row:hover{background:#fff;transform:translateX(5px)}.rank{width:38px;height:38px;border-radius:14px;display:grid;place-items:center;background:var(--brand);color:#fff;font-weight:950}.price{margin-left:auto;font-weight:950}.muted{color:var(--muted);font-size:12px;font-weight:700}.action{border-radius:16px;padding:12px 16px;background:var(--brand);color:#fff;font-weight:900;transition:var(--fast)}.action:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(11,29,77,.25)}.ghost{background:rgba(255,255,255,.72);color:var(--brand)}.orders{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.order{border-radius:26px;padding:18px}.tag{display:inline-flex;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:900;background:#E9F2FF;color:var(--brand2)}.tag.green{background:#DFF8EF;color:#10785C}.tag.red{background:#FFE5E2;color:#BA3630}.dish{display:flex;gap:14px;align-items:center;border-radius:24px;padding:14px;background:rgba(255,255,255,.68);margin-bottom:12px;transition:var(--fast)}.dish:hover{transform:scale(1.012);background:#fff}.pic{width:62px;height:62px;border-radius:18px;display:grid;place-items:center;font-size:30px;background:linear-gradient(145deg,#fff,#E8F2FF)}.add{margin-left:auto;width:42px;height:42px;border-radius:15px;background:var(--brand);color:#fff;font-size:22px;transition:var(--fast)}.add:active{transform:scale(.86)}.settings{display:grid;grid-template-columns:1fr 1fr;gap:18px}.field{background:rgba(255,255,255,.7);border-radius:18px;padding:14px;margin-bottom:12px}.field small{display:block;color:var(--muted);font-weight:850;margin-bottom:6px}.field b{font-size:17px}.empty{min-height:250px;display:grid;place-items:center;text-align:center}.empty .ill{font-size:64px;animation:bob 2.4s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-8px)}}.toast{position:fixed;right:24px;bottom:24px;border-radius:24px;background:#fff;padding:16px 18px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:center;transform:translateY(120px);opacity:0;transition:var(--smooth);z-index:20}.toast.show{transform:none;opacity:1}.tick{width:38px;height:38px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:950;animation:pulse 1.5s infinite}@keyframes pulse{50%{box-shadow:0 0 0 10px rgba(22,184,138,.14)}}.cust{max-width:430px;margin:auto;border-radius:34px;overflow:hidden}.hero{background:linear-gradient(145deg,var(--brand),var(--brand2));color:#fff;padding:26px;text-align:center}.menu-body{padding:18px}.seg{display:flex;gap:8px;margin-bottom:15px}.seg button{flex:1;border-radius:15px;padding:11px;background:rgba(255,255,255,.65);font-weight:900}.seg button.on{background:var(--brand);color:#fff}
+@media(max-width:980px){body{overflow:auto}.app{height:auto;display:block}.side{margin-bottom:18px}.nav{grid-template-columns:repeat(4,1fr)}.nav button{text-align:center;padding:0 6px}.grid4{grid-template-columns:repeat(2,1fr)}.wide,.settings,.orders{grid-template-columns:1fr}}@media(max-width:560px){.app{padding:14px}.top{display:block}.top h1{font-size:28px}.grid4{grid-template-columns:1fr}.nav{grid-template-columns:repeat(2,1fr)}.panel,.card{border-radius:23px}.toast{left:14px;right:14px}}
+</style>
+</head>
+<body>
+<div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+<div class="app">
+  <aside class="side glass">
+    <div class="brand"><div class="logo">FM</div><div><b>FOODME</b><span>Premium SaaS System</span></div></div>
+    <div class="nav">
+      <button class="on" data-view="dash">📊 看板</button><button data-view="orders">🧾 订单</button><button data-view="menu">🍜 菜单</button><button data-view="report">📈 报表</button><button data-view="customer">📱 顾客页</button><button data-view="settings">⚙️ 设置</button>
+    </div>
+    <div class="mini"><b>Loading Skeleton</b><div class="skeleton" style="margin-top:14px"></div><div class="skeleton s2"></div><div class="skeleton s3"></div></div>
+  </aside>
+  <main class="main">
+    <div class="top"><div><h1 id="title">今天生意看板</h1><p>卖多少、什么最好卖、几点最旺，一眼看完。</p></div><div class="pill">Live · 12:48 PM</div></div>
+
+    <section id="dash" class="view on">
+      <div class="grid4">
+        <div class="card glass"><div class="label">今日营业额</div><div class="num" data-target="1280">RM 0</div><div class="trend">▲ 18% 比昨天好</div></div>
+        <div class="card glass"><div class="label">今日订单</div><div class="num" data-target="186">0</div><div class="trend">午餐时段最强</div></div>
+        <div class="card glass"><div class="label">平均订单</div><div class="num" data-target="6.88">RM 0</div><div class="trend">AOV 稳定</div></div>
+        <div class="card glass"><div class="label">净利润</div><div class="num" data-target="436">RM 0</div><div class="trend">▲ 成本控制良好</div></div>
+      </div>
+      <div class="wide">
+        <div class="panel glass"><h2>Sales by Time Period</h2><div class="chart"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><div style="display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-top:10px"><span>8AM</span><span>10AM</span><span>12PM</span><span>2PM</span><span>4PM</span><span>6PM</span><span>8PM</span></div></div>
+        <div class="panel glass"><h2>Top Selling</h2><div class="row"><div class="rank">1</div><div><b>炒饭</b><div class="muted">68 份 · 最热卖</div></div><div class="price">RM408</div></div><div class="row"><div class="rank">2</div><div><b>奶茶</b><div class="muted">54 杯</div></div><div class="price">RM216</div></div><div class="row"><div class="rank">3</div><div><b>炒面</b><div class="muted">39 份</div></div><div class="price">RM273</div></div><div style="margin-top:16px;padding:16px;border-radius:20px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff"><b>Smart Insight</b><br><span style="font-size:13px;opacity:.85">12PM–2PM 是今天最高峰，明天提前备料。</span></div></div>
+      </div>
+    </section>
+
+    <section id="orders" class="view">
+      <div style="display:flex;gap:10px;margin-bottom:16px"><button class="action" onclick="toast('新订单已接收')">＋ 新订单</button><button class="action ghost">筛选今日</button></div>
+      <div class="orders"><div class="order glass"><span class="tag">待做</span><h2>#A102 桌号 5</h2><p>炒饭 x2<br>奶茶 x1</p><b>RM 23.00</b></div><div class="order glass"><span class="tag green">已完成</span><h2>#A101 打包</h2><p>炒面 x1<br>咖啡 x2</p><b>RM 18.00</b></div><div class="order glass"><span class="tag red">未付款</span><h2>#A100 桌号 2</h2><p>椰浆饭 x3</p><b>RM 21.00</b></div></div>
+    </section>
+
+    <section id="menu" class="view">
+      <div class="panel glass"><h2>菜单管理</h2><div class="dish"><div class="pic">🍚</div><div><b>招牌炒饭</b><div class="muted">RM 6.00 · 可加蛋/加辣</div></div><button class="add" onclick="toast('已加入菜单')">+</button></div><div class="dish"><div class="pic">🥤</div><div><b>冰奶茶</b><div class="muted">RM 4.00 · 冷/热</div></div><button class="add" onclick="toast('已加入菜单')">+</button></div><div class="dish"><div class="pic">🍜</div><div><b>炒面</b><div class="muted">RM 7.00 · 大/小</div></div><button class="add" onclick="toast('已加入菜单')">+</button></div></div>
+    </section>
+
+    <section id="report" class="view">
+      <div class="wide"><div class="panel glass"><h2>报表分析</h2><div class="empty"><div><div class="ill">📊</div><h2>本周销售趋势良好</h2><p class="muted">系统会自动总结高峰时段、热卖商品、现金/QR 比例。</p></div></div></div><div class="panel glass"><h2>AI 建议</h2><div class="row"><div class="rank">AI</div><div><b>明天 11:30 前备料</b><div class="muted">预测午餐高峰会提前</div></div></div><div class="row"><div class="rank">💰</div><div><b>QR 收款占 42%</b><div class="muted">可以放大 QR 牌</div></div></div></div></div>
+    </section>
+
+    <section id="customer" class="view">
+      <div class="cust glass"><div class="hero"><div style="font-size:44px">🍜</div><h1>Wilson Noodle</h1><p>扫码点餐 · Order, Earn, Enjoy</p></div><div class="menu-body"><div class="seg"><button class="on">全部</button><button>饭类</button><button>饮料</button></div><div class="dish"><div class="pic">🍚</div><div><b>招牌炒饭</b><div class="muted">RM 6.00</div></div><button class="add" onclick="toast('已加入购物车')">+</button></div><div class="dish"><div class="pic">🥤</div><div><b>冰奶茶</b><div class="muted">RM 4.00</div></div><button class="add" onclick="toast('已加入购物车')">+</button></div></div></div>
+    </section>
+
+    <section id="settings" class="view">
+      <div class="settings"><div class="panel glass"><h2>商户设置</h2><div class="field"><small>店名</small><b>Wilson Noodle</b></div><div class="field"><small>状态</small><b style="color:var(--green)">营业中</b></div><div class="field"><small>语言</small><b>中文 / Malay / English</b></div></div><div class="panel glass"><h2>系统设置</h2><div class="field"><small>Theme</small><b>Premium Glass SaaS</b></div><div class="field"><small>Motion</small><b>Apple-level Smooth</b></div><button class="action" onclick="toast('设置已保存')">保存设置</button></div></div>
+    </section>
+  </main>
+</div>
+<div class="toast" id="toast"><div class="tick">✓</div><div><b id="toastTitle">成功</b><br><span class="muted">操作已经完成</span></div></div>
+<script>
+const titles={dash:'今天生意看板',orders:'订单管理',menu:'菜单管理',report:'智能报表',customer:'顾客点餐页面',settings:'系统设置'};
+function animateNumbers(){document.querySelectorAll('.num').forEach(el=>{const target=parseFloat(el.dataset.target);const isRM=el.textContent.includes('RM');let t0=performance.now();function step(t){let p=Math.min((t-t0)/1000,1);p=1-Math.pow(1-p,3);let v=target*p;el.textContent=isRM?'RM '+(target%1?v.toFixed(2):Math.round(v).toLocaleString()):Math.round(v).toLocaleString();if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)})}
+function showView(id){document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));document.getElementById(id).classList.add('on');document.getElementById('title').textContent=titles[id];document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('on',b.dataset.view===id));if(id==='dash')animateNumbers()}
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>showView(b.dataset.view));
+function toast(msg){const t=document.getElementById('toast');document.getElementById('toastTitle').textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+window.addEventListener('load',()=>{animateNumbers();setTimeout(()=>toast('订单已同步'),1000)});
+</script>
+</body>
+</html>
